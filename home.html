@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Responsif -FRANS BRUNO LAKESUBUN</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+  <!-- bagian header -->
+    <header class="bg-primary text-white text-center py-4">
+      <h1>Selamat datang di web koperasi</h1>
+    </header>
+
+
+    <!-- Konten Utama -->
+
+    <main class="container my-5">
+      <h2 class="mb-4">Daftar Barang Koperasi</h2>
+
+      <div
+        class="row row-cols-1 row-cols-md-3 g-4 justify-content-center"
+        id="daftar-barang"
+      ></div>
+    </main>
+
+    <!-- bagian footer -->
+    <footer class="bg-dark text-white text-center py-4">
+      <p>&copy; FRANS BRUNO LAKESUBUN @ UTDI</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // daftar barang
+      const daftarBarang = [
+        {
+          id: 1,
+          nama: "Buku Tulis",
+          harga: 5000,
+          img: "https://www.xfourgraphix.co.id/wp-content/uploads/2016/12/cetak-buku-tulis-sekolah.jpg",
+          keterangan: "Buku Tulis",
+        },
+        {
+          id: 2,
+          nama: "Pulpen Snowman",
+          harga: 5000,
+          img: "https://siopen.balangankab.go.id/storage/merchant/products/2024/02/08/5f006d68b10a8735e00ad2330415477b.jpg",
+          keterangan: "Pulpen Snowman",
+        },
+        {
+          id: 3,
+          nama: "Penghapus Joyko",
+          harga: 2000,
+          img: "https://images.tokopedia.net/img/cache/700/product-1/2020/6/5/103337120/103337120_01245ee5-efa6-49f4-a3f2-0d51106e175e_1024_1024",
+          keterangan: "Penghapus Joyko",
+        },
+        {
+          id: 4,
+          nama: "Map Plastik",
+          harga: 3000,
+          img: "https://plazabanten.com/storage/app/public/product/2024-02-05-65c0678aaedd0.png",
+          keterangan: "Map Plastik",
+        },
+        {
+          id: 5,
+          nama: "Pensil 2B",
+          harga: 28000,
+          img: "https://faber-castell.co.id/cfind/source/thumb/images/product/gwm/contain_w700_h700_117102-a.jpg.png",
+          keterangan: "Pensil 2B",
+        },
+      ];
+
+      const container = document.getElementById("daftar-barang");
+
+      daftarBarang.forEach((barang) => {
+        const col = document.createElement("div");
+        col.className = "col-md-4 mb-4 text-center";
+
+        col.innerHTML = `
+        <div class="card h-100">
+          <img src="${barang.img}" class="card-img-top" alt="${barang.nama}">
+          <div class="card-body">
+            <h5 class="card-title">${barang.nama}</h5>
+            <a href="detail.html?id=${barang.id}" class="btn btn-primary">Lihat Detail</a>
+          </div>
+        </div>
+      `;
+
+        container.appendChild(col);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Barang</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="bg-primary text-white text-center py-4">
+      <h1>Detail Barang</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+      <div class="row">
+        <!-- gambar -->
+        <div class="col-md-6 mb-4">
+          <img
+            src="https://via.placeholder.com/600x400"
+            class="img-fluid rounded"
+            alt="Detail Menu"
+          />
+        </div>
+        <!--  Detail -->
+        <div class="col-md-6">
+          <h2>Barang 1</h2>
+          <p>
+            Ini adalah halaman detail Barang
+          </p>
+          <p>
+            ketrangan
+          </p>
+          <a href="home.html" class="btn btn-primary mt-3">Kembali ke halaman utama</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- bagian footer -->
+    <footer class="bg-dark text-white text-center py-4">
+      <p>&copy; FRANS BRUNO LAKESUBUN @ UTDI</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // daftar barang
+      const daftarBarang = [
+        {
+          id: 1,
+          nama: "Buku Tulis",
+          harga: 5000,
+          img: "https://www.xfourgraphix.co.id/wp-content/uploads/2016/12/cetak-buku-tulis-sekolah.jpg",
+          keterangan: "Buku Tulis",
+        },
+        {
+          id: 2,
+          nama: "Pulpen Snowman",
+          harga: 5000,
+          img: "https://siopen.balangankab.go.id/storage/merchant/products/2024/02/08/5f006d68b10a8735e00ad2330415477b.jpg",
+          keterangan: "Pulpen Snowman",
+        },
+        {
+          id: 3,
+          nama: "Penghapus Joyko",
+          harga: 2000,
+          img: "https://images.tokopedia.net/img/cache/700/product-1/2020/6/5/103337120/103337120_01245ee5-efa6-49f4-a3f2-0d51106e175e_1024_1024",
+          keterangan: "Penghapus Joyko",
+        },
+        {
+          id: 4,
+          nama: "Map Plastik",
+          harga: 3000,
+          img: "https://plazabanten.com/storage/app/public/product/2024-02-05-65c0678aaedd0.png",
+          keterangan: "Map Plastik",
+        },
+        {
+          id: 5,
+          nama: "Pensil 2B",
+          harga: 28000,
+          img: "https://faber-castell.co.id/cfind/source/thumb/images/product/gwm/contain_w700_h700_117102-a.jpg.png",
+          keterangan: "Pensil 2B",
+        },
+      ];
+
+      //  Fungsi ambil parameter dari URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      const menuId = parseInt(getQueryParam("id")); // ambil id dari URL
+      const menu = daftarBarang.find((m) => m.id === menuId);
+
+      if (menu) {
+        document.querySelector("h2").textContent = menu.nama;
+
+        const paragraphs = document.querySelectorAll("main p");
+        paragraphs[0].textContent = menu.keterangan;
+        paragraphs[1].textContent = `Harga: Rp ${menu.harga.toLocaleString()}`;
+
+        document.querySelector("main img").src = menu.img;
+        document.querySelector("main img").alt = menu.nama;
+      }
+    </script>
+  </body>
+</html>
